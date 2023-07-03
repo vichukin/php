@@ -104,5 +104,6 @@ $str = serialize($rect);
 file_put_contents("rectangle.txt",$str);
 $str = file_get_contents("rectangle.txt");
 $p1= unserialize($str);
+echo "<h2>".$p1->width."</h2>";
 $p1->show();
 ?>
