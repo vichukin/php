@@ -15,10 +15,31 @@
         <li class="nav-item">
           <a class="nav-link <?echo $page==3?"active":""?>" href="?page=3">Admin</a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link <?echo $page==4?"active":""?>"  href="?page=4">Registration</a>
-        </li>
-      </ul>
+        
+        </ul>
+        <div class="nav-item ms-auto w-25">
+        <?
+          if(isset($_SESSION["isAuthorised"]))
+          {
+            ?>
+              <div class="d-flex justify-content-end">
+                <div >
+                  <h6 class="mb-0">Hello, <?echo $_SESSION["login"]?></h6>
+                  <form method="POST"><button class="btn btn-secondary btn-sm w-100" name="logout">Log out</button></form>
+                </div>
+                <img style="width: 15%;" src='data:image/png;base64,<?echo $_SESSION["photo"]?>'/>
+              </div>
+              
+            <?
+          }
+          else
+          {
+            ?>
+              <div class="d-flex justify-content-end"><a class="nav-link  <?echo $page==4?"active":""?>"  href="?page=4">Log in</a></div>
+            <?
+          }
+        ?>
+        </div>
     </div>
   </div>
 </nav>

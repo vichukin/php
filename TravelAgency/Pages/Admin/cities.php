@@ -2,6 +2,7 @@
     echo "<div class='alert alert-warning'>" . $_SESSION["cityadderr"] . "</div>";
 }
 ?>
+<h4>Cities:</h4>
 <table class="table table-striped mb-3">
     <thead>
         <tr>
@@ -38,7 +39,7 @@
         ?>
     </tbody>
 </table>
-<form method="POST" id="cityform">
+<form method="POST" id="cityform" >
     <div class="mb-3">
         <select required class="form-select" name="CountryId">
             <option value="0" selected>Choose country</option>
@@ -78,7 +79,7 @@ if (isset($_POST["addcity"])) {
         $res->free();
         
     } else {
-        $_SESSION["cityadderr"] = "Error when adding city! Uknown city!";
+        $_SESSION["cityadderr"] = "Error when adding city! Unknown city!";
         echo "<script>
                         location = document.URL;
                         </script>";

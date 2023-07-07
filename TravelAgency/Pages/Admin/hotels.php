@@ -1,7 +1,8 @@
-<? if (isset($_SESSION["cityadderr"])) {
-    echo "<div class='alert alert-warning'>" . $_SESSION["cityadderr"] . "</div>";
+<? if (isset($_SESSION["hotelerr"])) {
+    echo "<div class='alert alert-warning'>" . $_SESSION["hotelerr"] . "</div>";
 }
 ?>
+<h4>Hotels:</h4>
 <table class="table table-striped mb-3">
     <thead>
         <tr>
@@ -86,6 +87,7 @@
 
             .fa-star:hover {
                 color: orange;
+                cursor: pointer;
             }
 
             #stars {
@@ -129,7 +131,7 @@ if (isset($_POST["addhotel"])) {
         }
         $res->free();
     } else {
-        $_SESSION["hotelerr"] = "Error when adding hotels! Uknown City!";
+        $_SESSION["hotelerr"] = "Error when adding hotels! Unknown City!";
         echo "<script>
                         location = document.URL;
                         </script>";
@@ -148,73 +150,7 @@ if (isset($_POST["deletehotel"])) {
                         </script>";
 }
 ?>
-<script>
-    console.log($('#hotco'));
-    let selectedstar = 0;
-    $('.fa').on("mouseenter", (e) => {
-        let thisstar = e.target.id.slice(-1); // Получение номера текущей звезды
-        let stars = $('#stars');
-        for (let i = 1; i <= thisstar; i++) {
-            stars.find(`#star${i}`).addClass('checked'); // Добавление класса для оранжевого цвета
-        }
-    });
-    $('.fa').on("mouseleave", (e) => {
-        let thisstar = e.target.id.slice(-1); // Получение номера текущей звезды
-        let stars = $('#stars');
-        for (let i = 5; i >= thisstar; i--) {
-            stars.find(`#star${i}`).removeClass('checked'); // Добавление класса для оранжевого цвета
-        }
-    });
-    $('.fa').on("click", (e) => {
-        let thisstar = e.target.id.slice(-1); // Получение номера текущей звезды
-        selectedstar = thisstar;
-        $("#selstars").val(selectedstar);
-    });
-    $('.fa').on("click", (e) => {
-        let thisstar = e.target.id.slice(-1); // Получение номера текущей звезды
-        selectedstar = thisstar;
-        $("#selstars").val(selectedstar);
-    });
-    $('#stars').on("mouseleave", () => {
-        selectStars(selectedstar);
-    });
-
-    function selectStars(star) {
-
-        let stars = $('#stars');
-        for (let i = 1; i <= star; i++) {
-            stars.find(`#star${i}`).addClass('checked'); // Добавление класса для оранжевого цвета
-        }
-    }
-
-    $('#hotco').on('change', (e) => {
-
-        let val = $("#hotco option:selected").val();
-        if (val != 0) {
-            $.ajax({
-                url: "Pages/Admin/getCities.php", // Путь к вашему PHP-скрипту
-                method: 'POST',
-                data: {
-                    "getcities": $("#hotco option:selected").val()
-                },
-                success: function(response) {
-                    // Обработка успешного ответа от сервера
-                    console.log(response);
-                    if (response == "") {
-                        $("#hotci").empty().append("<option value='0'  selected>No cities available yet</option>").prop("disabled", true);
-                    } else {
-                        $("#hotci").empty().append("<option value='0'  selected>Choose city</option>").append(response).prop("disabled", false);
-                    }
-
-
-                },
-                error: function(xhr, status, error) {
-                    // Обработка ошибок
-                    console.log(error);
-                }
-            });
-        } else {
-            $("#hotci").empty().append("<option value='0'  selected>Choose city</option>").prop("disabled", true);
-        }
-    });
+<script src="Scripts/hotels.js">
+   
+    
 </script>

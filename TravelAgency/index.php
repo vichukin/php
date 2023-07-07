@@ -1,6 +1,6 @@
 <?
 session_start();
-
+include_once("Pages/functions.php");
 if (isset($_GET["page"]))
   $page = $_GET["page"];
 ?>
@@ -17,10 +17,26 @@ if (isset($_GET["page"]))
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+  <script src="Scripts/main.js"></script>
+  <style>
+    nav {
+      background-color: rgb(220, 220, 220);
+    }
+
+    a {
+      color: wheat;
+    }
+  </style>
 </head>
 
 <body>
   <?
+  if (isset($_POST["logout"])) {
+    unset($_SESSION["isAuthorised"]);
+    unset($_SESSION["login"]);
+    unset($_SESSION["photo"]);
+    unset($_SESSION["role"]);
+  }
   if (isset($_GET["page"])) {
     $page = $_GET["page"];
   } else
@@ -30,7 +46,6 @@ if (isset($_GET["page"]))
   <section>
 
     <?php
-    $page = $_GET["page"];
     switch ($page) {
       case 1:
         include_once("Pages/tours.php");
@@ -42,7 +57,22 @@ if (isset($_GET["page"]))
         include_once("Pages/admin.php");
         break;
       case 4:
-        include_once("Pages/registration.php");
+        if (isset($_SESSION["isAuthorised"]))
+          echo "<script>
+          alert('You already authorised!');
+          location = 'index.php';
+          </script>";
+        else
+          include_once("Pages/Login/login.php");
+        break;
+      case 5:
+        if (isset($_SESSION["isAuthorised"]))
+          echo "<script>
+          alert('You already authorised!');
+          location = 'index.php';
+          </script>";
+        else
+          include_once("Pages/Login/registration.php");
         break;
       default:
         echo "<h2>Page not found!</h2>";

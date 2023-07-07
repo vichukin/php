@@ -6,4 +6,20 @@ function connect_To_DB($host,$username,$passwrd="",$dbname="agencydb",$port=3306
     return $connect;
 
 }
+function unsetForRegPage(){
+    unset($_SESSION["loginformreg"]);
+    unset($_SESSION["emailformreg"]);
+    unset($_SESSION["passwordformreg"]);
+    unset($_SESSION["confpasswordformreg"]);   
+}
+function unsetRegErrors(){
+    unset($_SESSION["logregerror"]);
+    unset($_SESSION["passregerror"]);
+}
+function unsetLofErrors(){
+    unset($_SESSION["loginError"]);
+}
+function unsetForLogin(){
+    unset($_SESSION["loginform"]);
+}
 ?>

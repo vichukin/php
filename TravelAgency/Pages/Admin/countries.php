@@ -2,6 +2,7 @@
     echo "<div class='alert alert-warning'>" . $_SESSION["countryadderr"] . "</div>";
 }
 ?>
+<h4>Countries:</h4>
 <table class="table table-striped mb-3">
     <thead>
         <tr>
