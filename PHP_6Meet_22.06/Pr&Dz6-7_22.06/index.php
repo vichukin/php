@@ -1,5 +1,6 @@
 <?
 session_start();
+include_once("Models/Image.php");
 if(!isset($_GET["page"]))
     $_GET["page"]=1;
 

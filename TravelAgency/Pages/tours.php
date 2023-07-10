@@ -18,7 +18,7 @@
             
         ?>
             <div class="card mb-3">
-            <img src="<?echo $imgpath==""?"Images/nf.jpg":"$imgpath"?>" class="card-img-top" alt="photo">
+            <img src="<?echo $imgpath==""?"Images/nf.jpg":"$imgpath"?>" style='object-fit: cover; width: 100%;height: 25vh;' class="card-img-top" alt="photo">
             <div class="card-body">
                 <h5 class="card-title"><?echo $row[1]?></h5>
                 <p class="card-text"><?echo $row[2]?></p>
