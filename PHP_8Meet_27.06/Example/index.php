@@ -10,7 +10,10 @@
 
 </head>
 <body>
-    <table class="table table-stripped">
+    <div class="container">
+    <h2>Products</h2>
+    <hr>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -47,5 +50,6 @@
             ?>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

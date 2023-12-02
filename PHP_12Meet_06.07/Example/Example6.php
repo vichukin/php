@@ -1,7 +1,7 @@
 <?
 include_once("functions.php");
 $pdo = connect();
-// $ps1 = $pdo->prepare("INSERT Countries(`Country`) VALUES(?)");
+$ps1 = $pdo->prepare("INSERT Countries(`Country`) VALUES(?)");
 $country = "Italy";
 $ps1->bindParam(1, $country);
 $ps1->execute();

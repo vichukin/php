@@ -10,7 +10,7 @@
 </head>
 <body>
         <?
-            include_once("example6.php");
+            include_once("example7.php");
         ?>
 </body>
 </html>
