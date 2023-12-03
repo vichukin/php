@@ -10,46 +10,32 @@
 
 </head>
 <body>
+    <?
+    if(isset($_GET["page"]))
+    {
+        $page=$_GET["page"];
+    }
+    else
+        $page=1;
+    ?>
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="?page=1" class="nav-link <?echo $page==1?'active':''?>" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="?page=2" class="nav-link <?echo $page==2?'active':''?>">Add product</a></li>
+      </ul>
+    </header>
     <div class="container">
-    <h2>Products</h2>
-    <hr>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Quantity</th>
-            </tr>
-        </thead>
-        <tbody>
+        <div class="row">
             <?
-            $link = mysqli_connect("localhost","root","","shopDB",3306);
-            $query = "SELECT * FROM `Products`;";
-            $res = mysqli_query($link,$query);
-            
-            while($arr = mysqli_fetch_array($res, MYSQLI_ASSOC))
-            {
-                ?>
-                <tr>
-                    <?
-                    foreach($arr as $elem)
-                    {
-                    ?>
-                    <td>
-                        <?
-                        echo $elem;
-                        ?>
-                    </td>
-                    <?
-                    }
-                    ?>
-                </tr>
-                <?
-            }
-            
+
+                if($page==1)
+                    include("products.php");
+                else if($page==2)
+                    include("addproduct.php");
+                else if($page==3)
+                    include("editproduct.php");
             ?>
-        </tbody>
-    </table>
+        </div>
     </div>
 </body>
 </html>

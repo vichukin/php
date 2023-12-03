@@ -20,7 +20,7 @@ $quant = $_POST["quantity"];
 $querytext = "INSERT INTO `Products`( `Title`, `Quantity`) VALUES ('$title','$quant')";
 $res = mysqli_query($link,$querytext);
 if($res)
-    echo "successfully attached";
+    echo "<script>window.location.href = '/PHP_8Meet_27.06/Example';</script>";
 else 
     echo 'Little error';
 }
@@ -30,11 +30,13 @@ else
     <form method="POST">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col col-4"></div>
+                <div class="col col-4">
                     <div class="mb-3"><label for="title" class="form-label">Write title of product</label><input type="text" name="title" id="title" class="form-control" required>
-                    <label for="quantity" class="form-label">Write quantity of Products</label><input type="number" min="1" name="quantity" id="quantity" required class="form-control">
-                    <button class="btn btn-success">Add product</button>
+                    <div class="mb-3"><label for="quantity" class="form-label">Write quantity of Products</label><input type="number" min="1" name="quantity" id="quantity" required class="form-control"></div>
+                    <button class="btn btn-success w-100">Add product</button>
                 </div>
+                <div class="col col-4"></div>
                 </div>
             </div>
         </div>
