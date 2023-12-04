@@ -74,6 +74,8 @@ if (isset($_GET["page"]))
         else
           include_once("Pages/Login/registration.php");
         break;
+      case 6:
+        include_once("Pages/tour.php");
       default:
         echo "<h2>Page not found!</h2>";
         break;
