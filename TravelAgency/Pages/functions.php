@@ -1,10 +1,17 @@
 <?
-function connect_To_DB($host,$username,$passwrd="",$dbname="agencydb",$port=3306): mysqli|bool{
+function connect_To_DB($host="localhost",$username="root",$passwrd="",$dbname="agencydb",$port=3306): mysqli|bool{
     $connect = new mysqli($host,$username,$passwrd,$dbname,$port) or die("Could not connect to DB");
     if($connect)
         $connect->query("set names 'utf8'");
     return $connect;
 
+}
+function getUserIdByLogin($login)
+{
+    $link = connect_To_DB();
+    $res = $link->query("Select * from Users Where Login = '$login'");
+    $elem = $res->fetch_array();
+    return $elem['Id'];
 }
 function connect($host = "localhost:3306",$user = "root",$pass ="",$dbname="agencyDB"):PDO|bool
     {

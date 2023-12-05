@@ -10,9 +10,6 @@
           <a class="nav-link <?echo $page==1?"active":""?>   " aria-current="page" href="?page=1">Tours</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?echo $page==2?"active":""?>" href="?page=2">Comments</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link <?echo $page==3?"active":""?>" href="?page=3">Admin</a>
         </li>
         

@@ -21,9 +21,9 @@
             <img src="<?echo $imgpath==""?"Images/nf.jpg":"$imgpath"?>" style='object-fit: cover; width: 100%;height: 25vh;' class="card-img-top" alt="photo">
             <div class="card-body">
                 <h5 class="card-title"><?echo $row[1]?></h5>
-                <p class="card-text"><?echo $row[2]?></p>
-                <p class="card-text"><small class="text-body-secondary"><?echo $row[6]?>,<?echo $row[5]?></small></p>
-                <a href="?page=6&id=<?echo $row[0]?>" class="btn btn-otline-primary">Details</a>
+                <p class="card-text m-0"><small class="text-body-secondary"><?echo $row[6]?>,<?echo $row[5]?></small></p>
+                <p class="card-text m-0"><?echo $row[3]?> zl</p>
+                <a href="?page=6&id=<?echo $row[0]?>" class="btn btn-outline-primary">Details</a>
             </div>
             </div>
         <?

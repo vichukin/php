@@ -1,6 +1,7 @@
 <?
 session_start();
 include_once("Pages/functions.php");
+include_once("Models/comment.php");
 if (isset($_GET["page"]))
   $page = $_GET["page"];
 ?>
@@ -50,9 +51,6 @@ if (isset($_GET["page"]))
       case 1:
         include_once("Pages/tours.php");
         break;
-      case 2:
-        include_once("Pages/comments.php");
-        break;
       case 3:
         include_once("Pages/admin.php");
         break;
@@ -76,6 +74,7 @@ if (isset($_GET["page"]))
         break;
       case 6:
         include_once("Pages/tour.php");
+        break;
       default:
         echo "<h2>Page not found!</h2>";
         break;
