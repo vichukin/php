@@ -29,6 +29,8 @@ class Home extends BaseController
             $message = "";
         }
         $arr["message"] = $message;
+        $arr["city"] = $city;
+        $arr["stars"] = $stars;
         if ($res->getNumRows() != 0) {
             $row = $res->getFirstRow("array");
             do {
@@ -49,6 +51,6 @@ class Home extends BaseController
         do {
             $arr["Cities"][] = $row->City;
         } while ($row = $res->getNextRow());
-        return view("Header") . view("Tours", $arr);
+        return view("Header").view("Tours", $arr);
     }
 }

@@ -14,13 +14,13 @@
 <div class="container">
 
     <form method="GET">
-        <div class="d-flex mb-4 bg-secondary w-100 p-2">
+        <div class="d-flex mb-4  w-100 p-2" style="background-color: rgb(150,150,150)">
             <h2 class="w-25 text-white">Tours</h2>
             <select name="City" class='form-select w-25'>
                 <option value="">Choose city</option>
                 <?
                 foreach ($Cities as $elem) {
-                    echo "<option >$elem</option>";
+                    echo "<option ".($city==$elem?"selected":"")." >$elem</option>";
                 }
                 ?>
             </select>
@@ -28,11 +28,12 @@
                 <option value="">Choose stars</option>
                 <?
                 foreach (range(1, 5) as $elem) {
-                    echo "<option value='$elem'>$elem " . ($elem == 1 ? "Star" : "Stars") . "</option>";
+                    echo "<option value='$elem' ".($stars==$elem?"selected":""). " >$elem " . ($elem == 1 ? "Star" : "Stars") . "</option>";
                 }
                 ?>
             </select>
             <button class="btn btn-primary w-25 ms-2">Search</button>
+            <a href="/" class="btn btn-secondary w-25 ms-2">Clear filter</a>
         </div>
     </form>
     <?
