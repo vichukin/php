@@ -32,10 +32,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->resource("api/books",["controller"=>"BooksLib"]);
-$routes->get("pages",[Pages::class, "index"]);
-$routes->get("pages/(:segment)",[Pages::class, "view"]);
+$routes->get('/', 'Books::getindex');
+$routes->get('/create', 'Books::getcreate');
+$routes->post('/create', 'Books::postCreate');
+$routes->get('/authors', 'Authors::getindex');
+$routes->get('/authors/create', 'Authors::getcreate');
+$routes->post('/authors/create', 'Authors::postCreate');
+// $routes->resource("api/books",["controller"=>"BooksLib"]);
+// $routes->get("pages",[Pages::class, "index"]);
+// $routes->get("pages/(:segment)",[Pages::class, "view"]);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

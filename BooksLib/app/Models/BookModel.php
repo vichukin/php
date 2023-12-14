@@ -4,6 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+use App\Models\AuthorModel;
+
 class BookModel extends Model
 {
     protected $DBGroup          = 'default';
@@ -38,4 +40,19 @@ class BookModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public function GetBook($id =false)
+    {
+        $model = Model(AuthorModel::class);
+        if($id===false)
+        {
+            $arr = $this->findAll();
+            for($i = 0;$i<count($arr);$i++)
+            {
+                $author = $model->GetAuthor($arr[$i]["authorid"]);
+                $arr[$i]["author"] =$author;
+            }
+            return $arr;
+        }
+        return $this->find($id);
+    }
 }
