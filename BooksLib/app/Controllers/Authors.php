@@ -19,6 +19,10 @@ class Authors extends BaseController
     public function getCreate()
     {
         //
+        if(session()->get("isAdmin")==0)
+        {
+            return redirect()->to('/authors');
+        }
         helper("form");
         
         // $data["authors"] = $model->GetAuthor();
@@ -41,7 +45,7 @@ class Authors extends BaseController
         
         $model->save($post);
         $data["title"] = "Author added";
-        return view("templates/header",$data).view("authors/success").view("templates/footer");
+        return redirect()->to('/authors');
         // helper("form");
         // $model = Model(AuthorModel::class);
         // // $data["authors"] = $model->GetAuthor();

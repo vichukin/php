@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?
+      $session = session();
+      $user_data = $session->get();
+  ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +18,26 @@
       
 
       <div class="collapse navbar-collapse" id="navbarsExample03">
-        <ul class="navbar-nav me-auto mb-2 mb-sm-0 ">
+        <ul class="navbar-nav w-100 mb-2 mb-sm-0 ">
           <li class="nav-item">
             <a class="nav-link active"  href="/">Books</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/authors">Authors</a>
+          </li>
+          <?
+            if(isset($user_data["login"])&&$user_data["isAdmin"]==0)
+            {
+              ?>
+              <li class="nav-item">
+                <a class="nav-link" href="/getadmin">Get admin role</a>
+              </li>
+              <?
+            }
+          ?>
+          <li class="nav-item ms-auto">
+            
+            <a href="<?echo isset($user_data["login"])?"/logout":"/login"?>" class="nav-link"><?echo isset($user_data["login"])?"Log out":"Log in"?></a>
           </li>
         </ul>
       </div>
@@ -28,4 +46,4 @@
 <div class="container">
     <div class="row">
         <div class="col">
-    <h1><?=esc($title)?></h1>
+    <h1 class="text-center"><?=esc($title)?></h1>

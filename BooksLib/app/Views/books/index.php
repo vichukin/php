@@ -1,5 +1,14 @@
 
-<a href="/create" class="btn btn-outline-success">Create</a>
+<?
+    $session = session();
+    $user_data = $session->get();
+    if(isset($user_data["isAdmin"])&&$user_data["isAdmin"]==1)
+    {
+        ?>
+        <a  href="/create" class="btn btn-outline-success">Create</a>
+        <?
+    }
+?>
 <hr>
             <?
             

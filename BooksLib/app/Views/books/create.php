@@ -4,6 +4,7 @@
         <h2 class="alert alert-danger <?=session()->getFlashdata('error')==null?"d-none":""?>"><?=session()->getFlashdata('error')?></h2>
         <div class="alert alert-warning <?=validation_list_errors()==null?"d-none":""?>">
         <?=validation_list_errors(); ?>
+        </div>
 </div>
         
         <form method="post">

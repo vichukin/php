@@ -19,6 +19,10 @@ class Books extends BaseController
     }
     public function getCreate()
     {
+        if(session()->get("isAdmin")==0)
+        {
+            return redirect()->to('/');
+        }
         //
         helper("form");
         $model = Model(AuthorModel::class);
