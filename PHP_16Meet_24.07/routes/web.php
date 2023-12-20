@@ -18,4 +18,4 @@ use App\Http\Controllers\AuthentificationController;
 //     return view('registration');
 // });
 Route::get('/',[AuthentificationController::class,"getRegistration"]);
-Route::post('/',[AuthentificationController::class,"postRegistration"]);
+Route::post('/showuser',[AuthentificationController::class,"postRegistration"])->name('showuser');

@@ -26,7 +26,7 @@
         </div>
         @endif
 
-        <form method="POST" >
+        <form method="POST" action="/showuser">
             @csrf
             <div class="mb-3"><label class="w-100" >Login:<input type="text" class="form-control" name="login" value="{{ old('login') }}"></label></div>
             <div class="mb-3"><label class="w-100" >Email:<input type="email" class="form-control" name="email" value="{{ old('email') }}"></label></div>
