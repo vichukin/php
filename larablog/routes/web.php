@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('topic/index',[TopicController::class,"index"])->name("topic.index");
-Route::get('topic/create',[TopicController::class,"create"])->name("topic.create");
-Route::post("topic",[TopicController::class,"store"])->name("topic.store");
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/',[TopicController::class,"index"])->name("topic.index");
+Route::get('create',[TopicController::class,"create"])->name("topic.create");
+Route::post("createtopic",[TopicController::class,"CreateTopic"])->name("topic.createTopic");
+Route::post("createblock",[TopicController::class,"CreateBlock"])->name("topic.createBlock");

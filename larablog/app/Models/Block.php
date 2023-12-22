@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Block extends Model
 {
     use HasFactory;
-    protected $fillable=["TopicId","Title","Content","imagePath", "created_at","updated_at"];
-    public function topic(): BelongsTo{
-        return $this->belongsTo(Topic::class,"TopicId");
+    protected $fillable=["Topic_Id","Title","Content","imagePath", "created_at","updated_at"];
+    protected $primaryKey = "Id";
+    public function topic(): BelongsTo
+    {
+        return $this->belongsTo(Topic::class, "Topic_Id", "Id");
     }
 }

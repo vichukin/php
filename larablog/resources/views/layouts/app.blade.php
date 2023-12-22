@@ -15,35 +15,20 @@
 <div class="container-fluid" id="header">
     @section("menu")
 
-        <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">Navbar</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                      <a class="nav-link" href="#">Features</a>
-                      <a class="nav-link" href="#">Pricing</a>
-                      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-        </header>
-
+    <header class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/" class="nav-link {{$page==1?'active':''}}" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="/create" class="nav-link {{$page==2?'active':''}}">Create</a></li>
+        </ul>
+      </header>
     @show
 </div>
 <div class="container" id="main">
-    <div class="row">
-        <div class="col-3">
+    <div class="row mt-3">
             @section('sidebar')
-            <h2>Left side bar</h2>
+
             @show
-        </div>
-        <div class="col-9">
+        <div class="col">
             @yield('content')
         </div>
     </div>
